@@ -619,6 +619,129 @@
     .tab-btn { padding: 12px 16px; font-size: 12px; }
     .fc-verb { font-size: 1.8rem; }
   }
+
+  /* Print button */
+  .print-btn {
+    margin-left: auto;
+    opacity: .6;
+    font-size: 12px;
+  }
+  .print-btn:hover { opacity: 1; }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    @page {
+      size: letter;
+      margin: 0.65in 0.6in;
+    }
+
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body { background: #fff; font-size: 11pt; }
+
+    /* Hide nav & interactive chrome */
+    .tab-bar, .action-bar, .practice-meta, #flashcards { display: none !important; }
+
+    /* Show both overview and practice, stacked */
+    .section { display: block !important; }
+
+    header {
+      background: #1A1814 !important;
+      color: #F5F0E8 !important;
+      padding: 0.5in 0.6in 0.35in;
+      margin: -0.65in -0.6in 0.35in;
+      page-break-after: avoid;
+    }
+    header::before, header::after { display: none; }
+    .header-tag { color: rgba(245,240,232,0.55) !important; font-size: 8pt; }
+    header h1 { font-size: 20pt; }
+    .header-sub { font-size: 9pt; color: rgba(245,240,232,0.55) !important; }
+
+    main { padding: 0; max-width: 100%; }
+
+    /* ---- OVERVIEW ---- */
+    #overview { page-break-after: always; }
+
+    .rule-banner {
+      background: #1A1814 !important;
+      color: #F5F0E8 !important;
+      border-radius: 6px;
+      padding: 10pt 12pt;
+      margin-bottom: 14pt;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10pt;
+    }
+    .rule-main { color: rgba(245,240,232,0.85) !important; font-size: 10pt; }
+    .rule-part { background: rgba(245,240,232,0.1) !important; color: rgba(245,240,232,0.8) !important; font-size: 9pt; padding: 3pt 8pt; border-radius: 4pt; }
+    .rule-part strong { color: #F5F0E8 !important; }
+
+    .overview-section-title { font-size: 7.5pt; margin: 12pt 0 7pt; padding-bottom: 4pt; }
+
+    /* Quick ref table */
+    .participle-table { font-size: 9.5pt; border-radius: 0; margin-bottom: 12pt; }
+    .participle-table th { background: #1A1814 !important; color: rgba(245,240,232,0.7) !important; padding: 5pt 10pt; font-size: 7pt; }
+    .participle-table td { padding: 5pt 10pt; }
+
+    /* Verb conjugation cards — 4 across for regular, 5 across for irregular */
+    .verb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7pt;
+      margin-bottom: 8pt;
+    }
+    .verb-card { border-radius: 5pt; page-break-inside: avoid; box-shadow: none !important; }
+    .verb-card-head { padding: 5pt 8pt 4pt; }
+    .verb-type-badge { font-size: 7pt; padding: 1pt 5pt; margin-bottom: 3pt; }
+    .badge-er { background: #E4F3EE !important; color: #0F6E56 !important; }
+    .badge-ir { background: #E8EFF9 !important; color: #185FA5 !important; }
+    .badge-re { background: #FAF0DC !important; color: #C47A1E !important; }
+    .badge-irr { background: #EDE8FA !important; color: #4A3AAA !important; }
+    .verb-infinitive { font-size: 11pt; }
+    .verb-participle { font-size: 8pt; }
+    .conj-list { padding: 4pt 8pt 5pt; }
+    .conj-list li { font-size: 8.5pt; padding: 1.5pt 0; }
+    .conj-form { font-size: 8pt; }
+
+    /* ---- PRACTICE ---- */
+    #practice { page-break-before: always; }
+
+    .exercises { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; }
+    .ex-row {
+      background: #fff !important;
+      border: 1pt solid rgba(26,24,20,0.15) !important;
+      border-radius: 5pt;
+      padding: 7pt 10pt;
+      page-break-inside: avoid;
+      display: flex;
+      align-items: center;
+      gap: 7pt;
+      flex-wrap: nowrap;
+    }
+    .ex-row.correct, .ex-row.wrong { background: #fff !important; border-color: rgba(26,24,20,0.15) !important; }
+    .ex-num { font-size: 8pt; min-width: 16pt; }
+    .ex-verb-tag { font-size: 8pt; padding: 2pt 6pt; background: #E8EFF9 !important; color: #185FA5 !important; }
+    .ex-sentence { font-size: 9.5pt; }
+    .ex-input {
+      border: none;
+      border-bottom: 1pt solid #888;
+      font-size: 9pt;
+      width: 90pt;
+      background: transparent;
+    }
+    .ex-answer { display: none !important; }
+    .score-display { display: none !important; }
+    .progress-pill { display: none !important; }
+
+    footer {
+      margin-top: 14pt;
+      font-size: 8pt;
+      color: #8A8580;
+      border-top: 0.5pt solid rgba(26,24,20,0.15);
+      padding-top: 8pt;
+      text-align: center;
+    }
+  }
 </style>
 </head>
 <body>
@@ -636,6 +759,7 @@
     <button class="tab-btn active" onclick="showTab('overview', this)">Overview</button>
     <button class="tab-btn" onclick="showTab('flashcards', this)">Flashcards</button>
     <button class="tab-btn" onclick="showTab('practice', this)">Practice</button>
+    <button class="tab-btn print-btn" onclick="window.print()">&#128438; Print</button>
   </div>
 </div>
 
