@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passé Composé — Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1814;
+    --ink-light: #4A4640;
+    --ink-muted: #8A8580;
+    --blue: #2A5FA5;
+    --blue-light: #E8EFF9;
+    --teal: #1A7A60;
+    --teal-light: #E4F3EE;
+    --amber: #C47A1E;
+    --amber-light: #FAF0DC;
+    --red: #B03030;
+    --red-light: #FAEAEA;
+    --green: #2A7A3A;
+    --green-light: #E8F5EB;
+    --border: rgba(26,24,20,0.12);
+    --shadow: 0 2px 16px rgba(26,24,20,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(245,240,232,0.08);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 40%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,240,232,0.05);
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+  .header-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  header h1 em { font-style: italic; color: rgba(245,240,232,0.6); }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+  }
+
+  /* Tabs */
+  .tab-bar {
+    background: var(--ink);
+    border-top: 1px solid rgba(245,240,232,0.08);
+  }
+  .tab-bar-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+  }
+  .tab-btn {
+    padding: 14px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(245,240,232,0.45);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    letter-spacing: .03em;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-btn:hover { color: rgba(245,240,232,0.75); }
+  .tab-btn.active {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+  }
+
+  /* Main content */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ===== OVERVIEW SECTION ===== */
+  .rule-banner {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .rule-banner .rule-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.85);
+    flex: 1;
+    min-width: 200px;
+  }
+  .rule-parts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .rule-part {
+    background: rgba(245,240,232,0.08);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    color: rgba(245,240,232,0.75);
+  }
+  .rule-part strong { color: var(--cream); font-weight: 500; }
+
+  .overview-section-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 2rem 0 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .verb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .verb-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .verb-card:hover { box-shadow: var(--shadow); }
+  .verb-card-head {
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .verb-type-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+  .badge-er { background: var(--teal-light); color: var(--teal); }
+  .badge-ir { background: var(--blue-light); color: var(--blue); }
+  .badge-re { background: var(--amber-light); color: var(--amber); }
+  .badge-irr { background: #EDE8FA; color: #4A3AAA; }
+
+  .verb-infinitive {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .verb-participle {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 1px;
+    font-family: 'DM Mono', monospace;
+  }
+  .verb-participle span { color: var(--ink); font-weight: 500; }
+
+  .conj-list {
+    padding: 8px 14px 10px;
+    list-style: none;
+  }
+  .conj-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2px 0;
+    font-size: 12.5px;
+    border-bottom: 1px solid rgba(26,24,20,0.04);
+  }
+  .conj-list li:last-child { border-bottom: none; }
+  .conj-pronoun { color: var(--ink-muted); }
+  .conj-form { font-weight: 500; font-family: 'DM Mono', monospace; font-size: 11.5px; }
+
+  /* Participle quick ref */
+  .participle-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .participle-table th {
+    background: var(--ink);
+    color: rgba(245,240,232,0.7);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .participle-table td {
+    padding: 9px 16px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .participle-table tr:last-child td { border-bottom: none; }
+  .participle-table tr:hover td { background: rgba(26,24,20,0.02); }
+  .pt-verb { font-family: 'Playfair Display', serif; font-size: 14px; }
+  .pt-part { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 13px; }
+  .pt-rule { font-size: 12px; color: var(--ink-muted); }
+
+  /* ===== PRACTICE SECTION ===== */
+  .practice-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .practice-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .progress-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 14px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .exercises { display: flex; flex-direction: column; gap: 10px; }
+
+  .ex-row {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    transition: border-color .2s;
+  }
+  .ex-row.correct { border-color: var(--teal); background: var(--teal-light); }
+  .ex-row.wrong { border-color: var(--red); background: var(--red-light); }
+
+  .ex-num {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-family: 'DM Mono', monospace;
+    min-width: 20px;
+  }
+  .ex-verb-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-family: 'DM Mono', monospace;
+    white-space: nowrap;
+  }
+  .ex-sentence {
+    flex: 1;
+    font-size: 15px;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .ex-input {
+    border: none;
+    border-bottom: 2px solid var(--ink-muted);
+    background: transparent;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    padding: 0 4px;
+    width: 130px;
+    outline: none;
+    text-align: center;
+    transition: border-color .2s;
+  }
+  .ex-input:focus { border-bottom-color: var(--blue); }
+  .correct .ex-input { border-bottom-color: var(--teal); color: var(--teal); }
+  .wrong .ex-input { border-bottom-color: var(--red); color: var(--red); }
+
+  .ex-answer {
+    font-size: 12px;
+    color: var(--teal);
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    display: none;
+    min-width: 100px;
+  }
+  .wrong .ex-answer { display: block; color: var(--red); }
+
+  /* Action bar */
+  .action-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .btn-check {
+    padding: 10px 28px;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity .2s, transform .1s;
+  }
+  .btn-check:hover { opacity: .85; }
+  .btn-check:active { transform: scale(.98); }
+  .btn-reset {
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .btn-reset:hover { background: #fff; color: var(--ink); }
+
+  .score-display {
+    display: none;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .score-display .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .score-display.show { display: flex; align-items: baseline; gap: 6px; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* ===== FLASHCARD SECTION ===== */
+  .fc-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .fc-filter-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .fc-filter-btn:hover { color: var(--ink); border-color: rgba(26,24,20,0.3); }
+  .fc-filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .fc-counter {
+    margin-left: auto;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink-muted);
+  }
+
+  .fc-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .fc-card-wrap {
+    width: 100%;
+    max-width: 480px;
+    perspective: 1200px;
+    cursor: pointer;
+  }
+  .fc-card-inner {
+    width: 100%;
+    min-height: 220px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .fc-card-wrap.flipped .fc-card-inner { transform: rotateY(180deg); }
+
+  .fc-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem 1.5rem;
+    border: 1px solid var(--border);
+  }
+  .fc-front {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .fc-back {
+    background: #fff;
+    color: var(--ink);
+    transform: rotateY(180deg);
+  }
+
+  .fc-type-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .fc-front .fc-type-tag { color: rgba(245,240,232,0.45); }
+  .fc-back .fc-type-tag { color: var(--ink-muted); }
+
+  .fc-verb {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .fc-front .fc-verb { color: var(--cream); }
+
+  .fc-hint {
+    font-size: 12px;
+    opacity: .45;
+    margin-top: 16px;
+  }
+
+  .fc-participle {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .fc-meaning {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+  .fc-conj-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 16px;
+    font-size: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 8px;
+  }
+  .fc-conj-mini .cp { color: var(--ink-muted); }
+  .fc-conj-mini .cf { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; }
+
+  .fc-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fc-nav-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .15s;
+    color: var(--ink);
+  }
+  .fc-nav-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .fc-nav-btn:disabled { opacity: .3; cursor: default; }
+  .fc-nav-btn:disabled:hover { background: #fff; color: var(--ink); border-color: var(--border); }
+
+  .fc-flip-hint {
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: center;
+  }
+
+  /* ER verb bank */
+  .er-bank {
+    margin-top: 1rem;
+  }
+  .er-bank-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .er-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  .er-pill {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition: box-shadow .15s;
+  }
+  .er-pill:hover { box-shadow: var(--shadow); }
+  .er-pill .ep-inf {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .er-pill .ep-eng {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .er-pill .ep-part {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--teal);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 1.25rem 1rem; }
+    header { padding: 2rem 1rem 1.5rem; }
+    .rule-banner { flex-direction: column; gap: 1rem; }
+    .tab-btn { padding: 12px 16px; font-size: 12px; }
+    .fc-verb { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-tag">French — Unité 7, Leçon 23</div>
+    <h1>Le passé composé <em>&amp; les verbes irréguliers</em></h1>
+    <div class="header-sub">Quiz: lundi, le 20 avril &nbsp;·&nbsp; Fill-in-the-blank conjugation practice</div>
+  </div>
+</header>
+
+<div class="tab-bar">
+  <div class="tab-bar-inner">
+    <button class="tab-btn active" onclick="showTab('overview', this)">Overview</button>
+    <button class="tab-btn" onclick="showTab('flashcards', this)">Flashcards</button>
+    <button class="tab-btn" onclick="showTab('practice', this)">Practice</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===== OVERVIEW ===== -->
+  <div id="overview" class="section active">
+
+    <div class="rule-banner">
+      <div class="rule-main">Sujet + avoir/être (présent) + participe passé</div>
+      <div class="rule-parts">
+        <div class="rule-part"><strong>-ER</strong> → stem + é</div>
+        <div class="rule-part"><strong>-IR</strong> → stem + i</div>
+        <div class="rule-part"><strong>-RE</strong> → stem + u</div>
+      </div>
+    </div>
+
+    <!-- Participle quick ref -->
+    <div class="overview-section-title">Irregular past participles — quick reference</div>
+    <table class="participle-table">
+      <thead>
+        <tr>
+          <th>Infinitive</th>
+          <th>Past participle</th>
+          <th>Rule / note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pt-verb">être</td>
+          <td class="pt-part">été</td>
+          <td class="pt-rule">Irregular — memorize</td>
+        </tr>
+        <tr>
+          <td class="pt-verb">avoir</td>
+          <td class="pt-part">eu</td>
+          <td class="pt-rule">Irregular — memorize</td>
+        </tr>
+        <tr>
+          <td class="pt-verb">faire</td>
+          <td class="pt-part">fait</td>
+          <td class="pt-rule">Irregular — memorize</td>
+        </tr>
+        <tr>
+          <td class="pt-verb">voir</td>
+          <td class="pt-part">vu</td>
+          <td class="pt-rule">Irregular — memorize</td>
+        </tr>
+        <tr>
+          <td class="pt-verb">mettre</td>
+          <td class="pt-part">mis</td>
+          <td class="pt-rule">Irregular — memorize</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Regular verbs -->
+    <div class="overview-section-title">Regular verbs — full conjugations</div>
+    <div class="verb-grid">
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-er">-ER</span>
+          <div class="verb-infinitive">parler</div>
+          <div class="verb-participle">participle: <span>parlé</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai parlé</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as parlé</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a parlé</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons parlé</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez parlé</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont parlé</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-ir">-IR</span>
+          <div class="verb-infinitive">finir</div>
+          <div class="verb-participle">participle: <span>fini</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai fini</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as fini</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a fini</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons fini</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez fini</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont fini</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-re">-RE</span>
+          <div class="verb-infinitive">vendre</div>
+          <div class="verb-participle">participle: <span>vendu</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai vendu</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as vendu</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a vendu</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons vendu</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez vendu</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont vendu</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Irregular verbs -->
+    <div class="overview-section-title">Irregular verbs — full conjugations</div>
+    <div class="verb-grid">
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-irr">irrégulier</span>
+          <div class="verb-infinitive">être</div>
+          <div class="verb-participle">participle: <span>été</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai été</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as été</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a été</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons été</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez été</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont été</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-irr">irrégulier</span>
+          <div class="verb-infinitive">avoir</div>
+          <div class="verb-participle">participle: <span>eu</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai eu</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as eu</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a eu</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons eu</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez eu</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont eu</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-irr">irrégulier</span>
+          <div class="verb-infinitive">faire</div>
+          <div class="verb-participle">participle: <span>fait</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai fait</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as fait</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a fait</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons fait</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez fait</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont fait</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-irr">irrégulier</span>
+          <div class="verb-infinitive">voir</div>
+          <div class="verb-participle">participle: <span>vu</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai vu</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as vu</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a vu</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons vu</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez vu</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont vu</span></li>
+        </ul>
+      </div>
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="verb-type-badge badge-irr">irrégulier</span>
+          <div class="verb-infinitive">mettre</div>
+          <div class="verb-participle">participle: <span>mis</span></div>
+        </div>
+        <ul class="conj-list">
+          <li><span class="conj-pronoun">j'</span><span class="conj-form">ai mis</span></li>
+          <li><span class="conj-pronoun">tu</span><span class="conj-form">as mis</span></li>
+          <li><span class="conj-pronoun">il/elle</span><span class="conj-form">a mis</span></li>
+          <li><span class="conj-pronoun">nous</span><span class="conj-form">avons mis</span></li>
+          <li><span class="conj-pronoun">vous</span><span class="conj-form">avez mis</span></li>
+          <li><span class="conj-pronoun">ils/elles</span><span class="conj-form">ont mis</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /overview -->
+
+  <!-- ===== FLASHCARDS ===== -->
+  <div id="flashcards" class="section">
+
+    <div class="fc-controls">
+      <button class="fc-filter-btn active" onclick="setDeck('all', this)">All cards</button>
+      <button class="fc-filter-btn" onclick="setDeck('irregular', this)">Irregular verbs</button>
+      <button class="fc-filter-btn" onclick="setDeck('er', this)">-ER verbs</button>
+      <button class="fc-filter-btn" onclick="shuffleDeck()">Shuffle</button>
+      <span class="fc-counter" id="fc-counter">1 / 1</span>
+    </div>
+
+    <div class="fc-stage">
+      <div class="fc-card-wrap" id="fc-card" onclick="flipCard()">
+        <div class="fc-card-inner" id="fc-inner">
+          <div class="fc-face fc-front" id="fc-front"></div>
+          <div class="fc-face fc-back" id="fc-back"></div>
+        </div>
+      </div>
+      <div class="fc-flip-hint">Click the card to flip</div>
+      <div class="fc-nav">
+        <button class="fc-nav-btn" id="fc-prev" onclick="navCard(-1)">&#8592;</button>
+        <button class="fc-nav-btn" id="fc-next" onclick="navCard(1)">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="er-bank">
+      <div class="er-bank-title">Common -ER verb bank — infinitive &amp; participle</div>
+      <div class="er-grid" id="er-grid"></div>
+    </div>
+
+  </div><!-- /flashcards -->
+
+  <!-- ===== PRACTICE ===== -->
+  <div id="practice" class="section">
+
+    <div class="practice-meta">
+      <div class="practice-desc">Type the full passé composé form (auxiliary + participle). The verb is shown in blue.</div>
+      <div class="progress-pill" id="prog">0 / 20</div>
+    </div>
+
+    <div class="exercises" id="exercises"></div>
+
+    <div class="action-bar">
+      <button class="btn-check" onclick="checkAll()">Check answers</button>
+      <button class="btn-reset" onclick="resetAll()">Reset</button>
+      <div class="score-display" id="score-display">
+        <span class="score-num" id="score-num">0</span>
+        <span>/ 20 correct</span>
+      </div>
+    </div>
+
+  </div><!-- /practice -->
+
+</main>
+
+<footer>
+  Discovering French, Nouveau Bleu &nbsp;·&nbsp; Unité 7, Leçon 23 &nbsp;·&nbsp; Quiz: lundi, le 20 avril
+</footer>
+
+<script>
+const exercises = [
+  {verb:"parler",   answer:"ai parlé",      pre:"J'",      post:" avec mon professeur hier."},
+  {verb:"finir",    answer:"as fini",        pre:"Tu ",     post:" tes devoirs ce soir."},
+  {verb:"vendre",   answer:"a vendu",        pre:"Il ",     post:" sa guitare la semaine dernière."},
+  {verb:"regarder", answer:"avons regardé",  pre:"Nous ",   post:" un film vendredi soir."},
+  {verb:"choisir",  answer:"avez choisi",    pre:"Vous ",   post:" une belle chemise."},
+  {verb:"répondre", answer:"ont répondu",    pre:"Elles ",  post:" à la question."},
+  {verb:"faire",    answer:"ai fait",        pre:"J'",      post:" une promenade hier matin."},
+  {verb:"avoir",    answer:"as eu",          pre:"Tu ",     post:" de la chance au match!"},
+  {verb:"être",     answer:"a été",          pre:"Elle ",   post:" malade le week-end dernier."},
+  {verb:"voir",     answer:"avons vu",       pre:"Nous ",   post:" un bon film samedi."},
+  {verb:"mettre",   answer:"a mis",          pre:"Il ",     post:" son blouson ce matin."},
+  {verb:"faire",    answer:"avez fait",      pre:"Vous ",   post:" du sport hier après-midi."},
+  {verb:"voir",     answer:"ont vu",         pre:"Ils ",    post:" leurs cousins dimanche."},
+  {verb:"choisir",  answer:"ai choisi",      pre:"J'",      post:" une pizza à la cantine."},
+  {verb:"mettre",   answer:"as mis",         pre:"Tu ",     post:" la table pour le dîner."},
+  {verb:"travailler",answer:"a travaillé",   pre:"Elle ",   post:" beaucoup cette semaine."},
+  {verb:"attendre", answer:"avons attendu",  pre:"Nous ",   post:" le bus longtemps."},
+  {verb:"avoir",    answer:"avez eu",        pre:"Vous ",   post:" un accident de vélo?"},
+  {verb:"faire",    answer:"ont fait",       pre:"Ils ",    post:" leurs devoirs hier soir."},
+  {verb:"être",     answer:"ai été",         pre:"J'",      post:" à Paris le mois dernier."},
+];
+
+function normalize(s) {
+  return s.trim().toLowerCase()
+    .replace(/\u2019/g,"'").replace(/'/g,"'")
+    .replace(/[àâä]/g,'a').replace(/[éèêë]/g,'e')
+    .replace(/[îï]/g,'i').replace(/[ôö]/g,'o')
+    .replace(/[ùûü]/g,'u').replace(/ç/g,'c');
+}
+
+function buildExercises() {
+  const container = document.getElementById('exercises');
+  container.innerHTML = '';
+  exercises.forEach((ex, i) => {
+    const row = document.createElement('div');
+    row.className = 'ex-row';
+    row.id = 'row' + i;
+    row.innerHTML = `
+      <span class="ex-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="ex-verb-tag">${ex.verb}</span>
+      <span class="ex-sentence">
+        <span>${ex.pre}</span>
+        <input class="ex-input" id="inp${i}" type="text" autocomplete="off" spellcheck="false" placeholder="…" oninput="updateProgress()">
+        <span>${ex.post}</span>
+      </span>
+      <span class="ex-answer" id="ans${i}">✓ ${ex.answer}</span>
+    `;
+    container.appendChild(row);
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  const filled = exercises.filter((_, i) => document.getElementById('inp'+i)?.value.trim()).length;
+  document.getElementById('prog').textContent = filled + ' / ' + exercises.length;
+}
+
+function checkAll() {
+  let correct = 0;
+  exercises.forEach((ex, i) => {
+    const inp = document.getElementById('inp'+i);
+    const row = document.getElementById('row'+i);
+    const ans = document.getElementById('ans'+i);
+    row.classList.remove('correct','wrong');
+    if (normalize(inp.value) === normalize(ex.answer)) {
+      row.classList.add('correct');
+      inp.value = ex.answer;
+      ans.textContent = '';
+      correct++;
+    } else {
+      row.classList.add('wrong');
+      ans.textContent = '→ ' + ex.answer;
+    }
+  });
+  const sd = document.getElementById('score-display');
+  sd.classList.add('show');
+  document.getElementById('score-num').textContent = correct;
+}
+
+function resetAll() {
+  exercises.forEach((_, i) => {
+    const inp = document.getElementById('inp'+i);
+    const row = document.getElementById('row'+i);
+    const ans = document.getElementById('ans'+i);
+    inp.value = '';
+    row.classList.remove('correct','wrong');
+    ans.textContent = '';
+  });
+  document.getElementById('score-display').classList.remove('show');
+  updateProgress();
+}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+buildExercises();
+
+/* ===== FLASHCARD DATA ===== */
+const irregularCards = [
+  { type:'irregular', verb:'être', meaning:'to be', participle:'été',
+    conjugations:[["j'","ai été"],["tu","as été"],["il/elle","a été"],["nous","avons été"],["vous","avez été"],["ils/elles","ont été"]] },
+  { type:'irregular', verb:'avoir', meaning:'to have', participle:'eu',
+    conjugations:[["j'","ai eu"],["tu","as eu"],["il/elle","a eu"],["nous","avons eu"],["vous","avez eu"],["ils/elles","ont eu"]] },
+  { type:'irregular', verb:'faire', meaning:'to do / make', participle:'fait',
+    conjugations:[["j'","ai fait"],["tu","as fait"],["il/elle","a fait"],["nous","avons fait"],["vous","avez fait"],["ils/elles","ont fait"]] },
+  { type:'irregular', verb:'voir', meaning:'to see', participle:'vu',
+    conjugations:[["j'","ai vu"],["tu","as vu"],["il/elle","a vu"],["nous","avons vu"],["vous","avez vu"],["ils/elles","ont vu"]] },
+  { type:'irregular', verb:'mettre', meaning:'to put / place', participle:'mis',
+    conjugations:[["j'","ai mis"],["tu","as mis"],["il/elle","a mis"],["nous","avons mis"],["vous","avez mis"],["ils/elles","ont mis"]] },
+];
+
+const erVerbBank = [
+  {verb:'parler',    meaning:'to speak',      participle:'parlé'},
+  {verb:'regarder',  meaning:'to watch',      participle:'regardé'},
+  {verb:'écouter',   meaning:'to listen',     participle:'écouté'},
+  {verb:'travailler',meaning:'to work',       participle:'travaillé'},
+  {verb:'manger',    meaning:'to eat',        participle:'mangé'},
+  {verb:'acheter',   meaning:'to buy',        participle:'acheté'},
+  {verb:'chercher',  meaning:'to look for',   participle:'cherché'},
+  {verb:'danser',    meaning:'to dance',      participle:'dansé'},
+  {verb:'jouer',     meaning:'to play',       participle:'joué'},
+  {verb:'habiter',   meaning:'to live',       participle:'habité'},
+  {verb:'aimer',     meaning:'to like / love',participle:'aimé'},
+  {verb:'rentrer',   meaning:'to return home',participle:'rentré'},
+  {verb:'visiter',   meaning:'to visit',      participle:'visité'},
+  {verb:'téléphoner',meaning:'to call',       participle:'téléphoné'},
+  {verb:'nager',     meaning:'to swim',       participle:'nagé'},
+  {verb:'voyager',   meaning:'to travel',     participle:'voyagé'},
+  {verb:'chanter',   meaning:'to sing',       participle:'chanté'},
+  {verb:'inviter',   meaning:'to invite',     participle:'invité'},
+  {verb:'porter',    meaning:'to wear / carry',participle:'porté'},
+  {verb:'gagner',    meaning:'to win / earn', participle:'gagné'},
+];
+
+const erCards = erVerbBank.map(v => {
+  var s = v.participle;
+  return {
+    type:'er', verb:v.verb, meaning:v.meaning, participle:s, conjugations:null,
+    erConj:[["j'","ai "+s],["tu","as "+s],["il/elle","a "+s],["nous","avons "+s],["vous","avez "+s],["ils/elles","ont "+s]]
+  };
+});
+
+let allCards = [...irregularCards, ...erCards];
+let currentDeck = [...allCards];
+let currentIndex = 0;
+let isFlipped = false;
+
+function setDeck(type, btn) {
+  document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (type === 'all') currentDeck = [...allCards];
+  else if (type === 'irregular') currentDeck = [...irregularCards];
+  else if (type === 'er') currentDeck = [...erCards];
+  currentIndex = 0;
+  isFlipped = false;
+  document.getElementById('fc-card').classList.remove('flipped');
+  renderCard();
+}
+
+function shuffleDeck() {
+  for (let i = currentDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentDeck[i], currentDeck[j]] = [currentDeck[j], currentDeck[i]];
+  }
+  currentIndex = 0;
+  isFlipped = false;
+  document.getElementById('fc-card').classList.remove('flipped');
+  renderCard();
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('fc-card').classList.toggle('flipped', isFlipped);
+}
+
+function navCard(dir) {
+  currentIndex = Math.max(0, Math.min(currentDeck.length - 1, currentIndex + dir));
+  isFlipped = false;
+  document.getElementById('fc-card').classList.remove('flipped');
+  renderCard();
+}
+
+function renderCard() {
+  const card = currentDeck[currentIndex];
+  const front = document.getElementById('fc-front');
+  const back  = document.getElementById('fc-back');
+  const typeLabel = card.type === 'irregular' ? 'Irregular verb' : '-ER verb';
+
+  front.innerHTML = '<div class="fc-type-tag">' + typeLabel + '</div>'
+    + '<div class="fc-verb">' + card.verb + '</div>'
+    + '<div class="fc-hint">click to flip</div>';
+
+  let bh = '<div class="fc-type-tag">' + typeLabel + '</div>'
+    + '<div class="fc-participle">' + card.participle + '</div>'
+    + '<div class="fc-meaning">' + card.meaning + '</div>';
+
+  if (card.conjugations) {
+    bh += '<div class="fc-conj-mini">';
+    card.conjugations.forEach(function(pair) {
+      bh += '<span class="cp">' + pair[0] + '</span><span class="cf">' + pair[1] + '</span>';
+    });
+    bh += '</div>';
+  } else if (card.erConj) {
+    bh += '<div class="fc-conj-mini">';
+    card.erConj.forEach(function(pair) {
+      bh += '<span class="cp">' + pair[0] + '</span><span class="cf">' + pair[1] + '</span>';
+    });
+    bh += '</div>';
+  }
+  back.innerHTML = bh;
+
+  document.getElementById('fc-counter').textContent = (currentIndex + 1) + ' / ' + currentDeck.length;
+  document.getElementById('fc-prev').disabled = currentIndex === 0;
+  document.getElementById('fc-next').disabled = currentIndex === currentDeck.length - 1;
+}
+
+function buildErBank() {
+  var grid = document.getElementById('er-grid');
+  if (!grid) return;
+  erVerbBank.forEach(function(v) {
+    var pill = document.createElement('div');
+    pill.className = 'er-pill';
+    pill.innerHTML = '<span class="ep-inf">' + v.verb + '</span>'
+      + '<span class="ep-eng">' + v.meaning + '</span>'
+      + '<span class="ep-part">→ ' + v.participle + '</span>';
+    grid.appendChild(pill);
+  });
+}
+
+renderCard();
+buildErBank();
+
+</script>
+</body>
+</html>
